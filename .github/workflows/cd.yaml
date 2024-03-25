@@ -14,7 +14,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           username: alwaals
-          password: dckr_pat_4CdwKHmwS0UrmM_6jPVOVGZ7IC4
+          password: ${{ secrets.DOCKER_PASSWORD }}
           repository: alwaals/argodemo
           tags: ${{ github.sha }}, latest
   
