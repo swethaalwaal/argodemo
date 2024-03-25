@@ -1,5 +1,11 @@
-FROM nginx:stable-alpine3.17-slim
-COPY index.html /usr/share/nginx/html
+FROM golang:1.22 as build
+WORKDIR /app
+COPY . .
+COPY index.html /app/html
+RUN CGO_ENABLED=0 go build -o server main.go
 
-EXPOSE 80 
-CMD ["nginx", "-g", "daemon off;"]
+FROM alpine:3.12
+WORKDIR /app
+COPY --from=build /app/server .
+COPY index.html /app/server/html
+CMD ["./server"]
