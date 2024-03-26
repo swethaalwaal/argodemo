@@ -15,7 +15,7 @@ jobs:
         with:
           username: alwaals
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: alwaals/argodemo-argocd
+          repository: alwaals/argodemo
           tags: ${{ github.sha }}, latest
   
   deploy:
@@ -34,7 +34,7 @@ jobs:
       - name: update k8s
         run: |
           cd k8s
-          kustomize edit set image argodemo=alwaals/argodemo-argocd:${{ github.sha }}
+          kustomize edit set image argodemo=alwaals/argodemo:${{ github.sha }}
           cat kustomization.yaml
 
       - name: commit
