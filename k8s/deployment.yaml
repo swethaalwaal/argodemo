@@ -14,5 +14,6 @@ spec:
       containers:
       - name: argodemo
         image: argodemo
+        imagePullPolicy: Always
         ports:
         - containerPort: 8001
