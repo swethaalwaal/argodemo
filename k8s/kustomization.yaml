@@ -8,5 +8,5 @@ namespace: argodemo
 
 images: 
 - name: argodemo
-  newName: argodemo
-  newTag: v1
+  newName: alwaals/argodemo-argocd
+  newTag: latest

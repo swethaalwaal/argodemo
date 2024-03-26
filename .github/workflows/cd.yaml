@@ -15,7 +15,7 @@ jobs:
         with:
           username: alwaals
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: alwaals/argodemo
+          repository: alwaals/argodemo-argocd
           tags: latest
   
   deploy:
