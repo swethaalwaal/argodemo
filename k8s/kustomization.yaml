@@ -9,4 +9,4 @@ namespace: argodemo
 images:
 - name: argodemo
   newName: alwaals/argodemo
-  newTag: 0910a1138271adb2caf798c46c3b53c383750e05
+  newTag: latest
