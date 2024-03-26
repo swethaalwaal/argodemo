@@ -16,7 +16,7 @@ jobs:
           username: alwaals
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: alwaals/argodemo-argocd
-          tags: latest
+          tags: ${{ github.sha }}, latest
   
   deploy:
     name: Deploy
@@ -34,13 +34,14 @@ jobs:
       - name: update k8s
         run: |
           cd k8s
-          kustomize edit set image argodemo=alwaals/argodemo:latest
+          kustomize edit set image argodemo=alwaals/argodemo-argocd:${{ github.sha }}
           cat kustomization.yaml
 
       - name: commit
         run: |
           git config --local user.email "swetha.alwaal@gmail.com"
           git config --local user.name "alwaals"
+          git commit -am "change image tag"
 
       - name: push
         uses: ad-m/github-push-action@master
