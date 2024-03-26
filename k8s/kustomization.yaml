@@ -1,12 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources: 
+resources:
 - deployment.yaml
 - services.yaml
 
 namespace: argodemo
 
-images: 
+images:
 - name: argodemo
   newName: alwaals/argodemo-argocd
-  newTag: latest
+  newTag: 3359c16b3625d74b7114ecf2909280e8b6e3116b
