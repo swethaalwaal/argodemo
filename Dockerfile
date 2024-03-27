@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64/v8 golang:1.21.1
+FROM golang:1.21.1
 WORKDIR /app
 COPY go.mod ./
 RUN go mod download
