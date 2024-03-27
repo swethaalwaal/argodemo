@@ -1,6 +1,4 @@
-# FROM --platform=linux/arm64/v8 golang:1.22
-# FROM --platform=linux/arm64 golang:1.22
-FROM --platform=linux/arm64 golang:alpine3.19
+FROM --platform=linux/arm64/v8 golang:1.21.1
 WORKDIR /app
 COPY go.mod ./
 RUN go mod download
